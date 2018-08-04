@@ -11,4 +11,10 @@
     <td>
       <%= link_to "Изменить", edit_web_admin_article_path(article)%>
     </td>
+    <td>
+      <%= link_to "Удалить", 
+                  web_admin_article_path(article), 
+                  method: :delete, 
+                  data: { confirm: "Точно удалить?" } %>
+    </td>
   </tr>

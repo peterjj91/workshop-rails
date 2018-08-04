@@ -31,9 +31,9 @@ class Web::Admin::ArticlesController < Web::Admin::ApplicationController
 
   def destroy
     if @article.destroy
-      redirect_to :web_admin_articles, notice: 'Test deleted!'
+      redirect_to web_admin_articles_path
     else
-      render plain: 'Not deleted'
+      render plain: 'The question not deleted'
     end
   end
 
