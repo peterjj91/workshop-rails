@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root "webadmmin/articles#index"
+  root "web/common/articles#index"
 
   namespace :web do
     namespace :admin do
