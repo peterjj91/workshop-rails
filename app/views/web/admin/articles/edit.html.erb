@@ -1,0 +1,7 @@
+<h1>Изменение</h1>
+
+<p><%= @article.body %></p>
+
+<%= render 'form', answer: @answer %>
+
+<%= link_to "Назад", edit_web_admin_article_path(@article) %>
