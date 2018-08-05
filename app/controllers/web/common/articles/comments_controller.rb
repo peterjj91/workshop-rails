@@ -15,9 +15,11 @@ class Web::Common::Articles::CommentsController < Web::Common::Articles::Applica
   end
 
   private
+
   def set_article
     @article = Article.find(params[:article_id])
   end
+  
   def comment_params
     params.require(:article_comment).permit(:text)
   end
