@@ -1,5 +1,5 @@
 class Web::Common::ApplicationController < Web::ApplicationController
-  protect_from_forgery with: :exception
+  layout 'web/common/layouts/common'
 
   before_action :example
 

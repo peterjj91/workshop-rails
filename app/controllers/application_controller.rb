@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  layout 'web/layouts/application'
+  before_action :first
+
+  def first
+    puts "1"
+  end
 end

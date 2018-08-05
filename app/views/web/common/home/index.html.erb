@@ -1,0 +1,6 @@
+<h1>HomePage</h1>
+<% @articles.each do |article| %>
+<%= article.title %></td>
+<%= link_to 'Show', article_path(article) %></td>
+<br>
+<% end %>

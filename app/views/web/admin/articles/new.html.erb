@@ -1,11 +1,5 @@
-<%= form_with(model: [:web, :admin, @article], local: true) do |f| %>
+<h1>New Article</h1>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= render 'form', article: @article %>
 
-  <%= f.label :body %>
-  <%= f.text_field :body %>
-
-  <%= f.submit %>
-
-<% end %>
+<%= link_to 'Back', new_admin_article_path %>

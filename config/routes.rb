@@ -1,16 +1,30 @@
 Rails.application.routes.draw do
   
-  devise_for :users
-  root "web/common/articles#index"
+  root 'web/common/home#index'
+  devise_for :users, controllers: {
+    sessions: 'web/users/sessions',
+    registrations: 'web/users/registrations',
+    passwords: 'web/users/passwords',
+    confirmations: 'web/users/confirmations',
+  }, path: ''
 
-  namespace :web do
-    namespace :admin do
-      resources :articles do
+  scope module: :web do
+    scope module: :common do
+      resources :articles, only: [:index,:show] do
+        scope module: :articles do
+          resources :comments, only: [:create, :destroy]
+        end
       end
+      get '/blog', to: 'articles#index'
+      get '/blog/:id', to: 'articles#show'
     end
 
-    namespace :common do
-      resources :articles, only: [:index,:show] do
+    namespace :admin do
+      resources :articles do
+        member do
+          put :unarchieve
+          put :archieve
+        end
       end
     end
   end

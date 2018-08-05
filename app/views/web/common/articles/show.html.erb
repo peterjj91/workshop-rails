@@ -1,5 +1,18 @@
-<h1><%= @article.title %></h1>
+<p id="notice"><%= notice %></p>
 
-<p><%= @article.body %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
 
-<%= link_to "Назад", web_common_articles_path %>
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+<h2>Comments</h2>
+<%= render partial: "web/common/articles/comments/comment", collection: @article.comments %>
+<% if user_signed_in? %>
+  <h2>Add a comment:</h2>
+  <%= render partial: 'web/common/articles/comments/form' %>
+<% end %>
+<%= link_to 'Back', articles_path %>

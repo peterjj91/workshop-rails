@@ -1,8 +1,9 @@
 class Web::Admin::ApplicationController < Web::ApplicationController
+  before_action :third
   before_action :authenticate_user!
-  before_action :example
+  layout 'web/admin/layouts/admin'
 
-  def example
-    puts "admin"
+  def third
+    puts "3"
   end
 end
