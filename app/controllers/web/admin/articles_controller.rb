@@ -18,6 +18,7 @@ class Web::Admin::ArticlesController < Web::Admin::ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.accept
     @article.user = current_user
 
     respond_to do |format|

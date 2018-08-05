@@ -5,9 +5,17 @@ class Article < ApplicationRecord
   belongs_to :user
   has_many :comments
 
-  state_machine :initial => :parked do
-    event :ignite do
-      transition :parked => :idling
+  state_machine :status, initial: :draft do
+    state :draft
+    state :ready_to_publish
+    state :published
+
+    event :accept do
+      transition draft: :ready_to_publish
+    end
+
+    event :publish do
+      transition ready_to_publish: :published
     end
   end
 
